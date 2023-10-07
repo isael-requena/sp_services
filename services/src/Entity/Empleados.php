@@ -1,0 +1,277 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Empleados
+ *
+ * @ORM\Table(name="empleados")
+ * @ORM\Entity
+ */
+class Empleados
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ID_EMPLEADO", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEmpleado;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="CEDULA", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $cedula = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="NUM_EMPLEADO", type="string", length=10, nullable=true, options={"default"="NULL"})
+     */
+    private $numEmpleado = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="CARGO", type="string", length=50, nullable=true, options={"default"="NULL"})
+     */
+    private $cargo = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="PRIMER_APELLIDO", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $primerApellido = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="PRIMER_NOMBRE", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $primerNombre = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="SEGUNDO_APELLIDO", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $segundoApellido = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="SEGUNDO_NOMBRE", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $segundoNombre = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="ESTATUS_LEGADO", type="string", length=10, nullable=true, options={"default"="NULL"})
+     */
+    private $estatusLegado = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="USUARIO_CREACION", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $usuarioCreacion = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="USUARIO_MODIFICACION", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $usuarioModificacion = 'NULL';
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="FEC_CREACION", type="datetime", nullable=true, options={"default"="NULL"})
+     */
+    private $fecCreacion = 'NULL';
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="FEC_MODIFICACION", type="datetime", nullable=true, options={"default"="NULL"})
+     */
+    private $fecModificacion = 'NULL';
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ESTATUS_REGISTRO", type="integer", nullable=true, options={"default"="1"})
+     */
+    private $estatusRegistro = 1;
+
+    public function getIdEmpleado(): ?int
+    {
+        return $this->idEmpleado;
+    }
+
+    public function getCedula(): ?string
+    {
+        return $this->cedula;
+    }
+
+    public function setCedula(?string $cedula): self
+    {
+        $this->cedula = $cedula;
+
+        return $this;
+    }
+
+    public function getNumEmpleado(): ?string
+    {
+        return $this->numEmpleado;
+    }
+
+    public function setNumEmpleado(?string $numEmpleado): self
+    {
+        $this->numEmpleado = $numEmpleado;
+
+        return $this;
+    }
+
+    public function getCargo(): ?string
+    {
+        return $this->cargo;
+    }
+
+    public function setCargo(?string $cargo): self
+    {
+        $this->cargo = $cargo;
+
+        return $this;
+    }
+
+    public function getPrimerApellido(): ?string
+    {
+        return $this->primerApellido;
+    }
+
+    public function setPrimerApellido(?string $primerApellido): self
+    {
+        $this->primerApellido = $primerApellido;
+
+        return $this;
+    }
+
+    public function getPrimerNombre(): ?string
+    {
+        return $this->primerNombre;
+    }
+
+    public function setPrimerNombre(?string $primerNombre): self
+    {
+        $this->primerNombre = $primerNombre;
+
+        return $this;
+    }
+
+    public function getSegundoApellido(): ?string
+    {
+        return $this->segundoApellido;
+    }
+
+    public function setSegundoApellido(?string $segundoApellido): self
+    {
+        $this->segundoApellido = $segundoApellido;
+
+        return $this;
+    }
+
+    public function getSegundoNombre(): ?string
+    {
+        return $this->segundoNombre;
+    }
+
+    public function setSegundoNombre(?string $segundoNombre): self
+    {
+        $this->segundoNombre = $segundoNombre;
+
+        return $this;
+    }
+
+    public function getEstatusLegado(): ?string
+    {
+        return $this->estatusLegado;
+    }
+
+    public function setEstatusLegado(?string $estatusLegado): self
+    {
+        $this->estatusLegado = $estatusLegado;
+
+        return $this;
+    }
+
+    public function getUsuarioCreacion(): ?string
+    {
+        return $this->usuarioCreacion;
+    }
+
+    public function setUsuarioCreacion(?string $usuarioCreacion): self
+    {
+        $this->usuarioCreacion = $usuarioCreacion;
+
+        return $this;
+    }
+
+    public function getUsuarioModificacion(): ?string
+    {
+        return $this->usuarioModificacion;
+    }
+
+    public function setUsuarioModificacion(?string $usuarioModificacion): self
+    {
+        $this->usuarioModificacion = $usuarioModificacion;
+
+        return $this;
+    }
+
+    public function getFecCreacion(): ?\DateTimeInterface
+    {
+        return $this->fecCreacion;
+    }
+
+    public function setFecCreacion(?\DateTimeInterface $fecCreacion): self
+    {
+        $this->fecCreacion = $fecCreacion;
+
+        return $this;
+    }
+
+    public function getFecModificacion(): ?\DateTimeInterface
+    {
+        return $this->fecModificacion;
+    }
+
+    public function setFecModificacion(?\DateTimeInterface $fecModificacion): self
+    {
+        $this->fecModificacion = $fecModificacion;
+
+        return $this;
+    }
+
+    public function getEstatusRegistro(): ?int
+    {
+        return $this->estatusRegistro;
+    }
+
+    public function setEstatusRegistro(?int $estatusRegistro): self
+    {
+        $this->estatusRegistro = $estatusRegistro;
+
+        return $this;
+    }
+
+
+}

@@ -1,0 +1,269 @@
+getListaRecorrido:
+  path: /lista-recorrido
+  controller: App\Controller\ListaRecorridoController::getListaRecorrido
+  methods: [GET]
+getCityTest:
+  path: /city
+  controller: App\Controller\CiudadController::getCity
+  methods: [GET]
+registerUser:
+  path: /users
+  controller: App\Controller\UsuarioController::register
+  methods: [PUT]
+updateUser:
+  path: /users
+  controller: App\Controller\UsuarioController::update
+  methods: [POST]
+getAllUser:
+  path: /users
+  controller: App\Controller\UsuarioController::getAll
+  methods: [GET]
+loginUser:
+  path: /user
+  controller: App\Controller\UsuarioController::login
+  methods: [POST]
+verify:
+  path: /verify
+  controller: App\Controller\UsuarioController::verify
+  methods: [POST]
+#insert api no connection
+apiNoConnection:
+  path: /tracking-no-connection
+  controller: App\Controller\TrackingPuntoController::apiNoConnectionApp
+  methods: [PUT]
+#insert tracking point
+insertTrackingPoint:
+  path: /tracking-point
+  controller: App\Controller\TrackingPuntoController::insertTrackingPoint
+  methods: [PUT]
+#insert tracking point pending
+insertTrackingPointPending:
+  path: /tracking-point-pending
+  controller: App\Controller\TrackingPuntoController::insertTrackingPendingApp
+  methods: [PUT]
+#insert tracking receipts pending
+insertTrackingReceiptsPending:
+  path: /tracking-receipts-pending
+  controller: App\Controller\TrackingCsController::insertTrackingPendingReceiptsApp
+  methods: [PUT]
+#insert tracking packing pending
+insertTrackingPackingsPending:
+  path: /tracking-packings-pending
+  controller: App\Controller\TrackingCsController::insertPackingsPendingApp
+  methods: [PUT]
+#get parameters
+getAllParameters:
+  path: /parameters
+  controller: App\Controller\ParametroController::getAll
+  methods: [POST]
+#insert tracking events point
+insertTrackingPointEvents:
+  path: /tracking-point-events
+  controller: App\Controller\TrackingPuntoController::insertMultipleTrackingEvents
+  methods: [PUT]
+#insert tracking cs
+insertTrackingReceipt:
+  path: /tracking-receipt
+  controller: App\Controller\TrackingCsController::insertTrackingReceipt
+  methods: [PUT]
+#insert packing
+insertPackingsAfterCheck:
+  path: /packings
+  controller: App\Controller\TrackingCsController::insertPackingsAfterCheck
+  methods: [PUT]
+#get new cs
+getNewPoints:
+  path: /get-new-receipts/{id}
+  controller: App\Controller\ApiComprobanteServicioController::getNewPointList
+  methods: [POST]
+#get total list of user
+getTotalListOfUser:
+  path: /get-list-total/{num}
+  controller: App\Controller\ListaRecorridoController::getTourListTotal
+  methods: [POST]
+#get duplicate assistant
+getTourListMultipleAssistants:
+  path: /get-list-total-assistant/{id}
+  controller: App\Controller\ListaRecorridoController::getTourListMultipleAssistants
+  methods: [POST]
+#insert packing
+insertPacking:
+  path: /packing
+  controller: App\Controller\EnvaseController::insertMultiplePackings
+  methods: [PUT]
+#get tour list
+getTourList:
+  path: /get-tour-list/{id}
+  controller: App\Controller\UsuarioController::getTourList
+  methods: [POST]
+#get tour list entry
+getTourListEntry:
+  path: /get-tour-list-entry/{id}
+  controller: App\Controller\UsuarioController::getTourListEntry
+  methods: [POST]
+#get user membership
+getUserMembership:
+  path: /get-membership/{id}
+  controller: App\Controller\UsuarioController::getMembership
+  methods: [POST]
+#get crew
+getCrew:
+  path: /get-crew/{id}
+  controller: App\Controller\TripulanteController::getByTourList
+  methods: [POST]
+#get type money
+getTypeMoney:
+  path: /get-type-money
+  controller: App\Controller\TipoMonedaController::getAll
+  methods: [POST]
+#get type value
+getTypeValue:
+  path: /get-type-value
+  controller: App\Controller\TipoValorController::getAll
+  methods: [POST]
+#get logBdm
+getlogBdm:
+  path: /log-bdm
+  controller: App\Controller\LogBdmController::getAll
+  methods: [GET]
+#insert log Panico
+insertLogPanic:
+  path: /log-panico
+  controller: App\Controller\LogPanicoController::register
+  methods: [PUT]
+#insert log bdm
+insertLogBDM:
+  path: /log-bdm
+  controller: App\Controller\LogBdmController::insert
+  methods: [PUT]
+#get tracking Maestro
+getMasterTracking:
+  path: /tracking-maestro
+  controller: App\Controller\TrackingMaestroController::getMasterTracking
+  methods: [POST]
+#get cause of non-execution
+getCauseOfNonExecution:
+  path: /cause-of-non-execution
+  controller: App\Controller\CausaNoEjecucionController::getAll
+  methods: [POST]
+#update tour list
+updateTourList:
+  path: /update-tour-list/{id}
+  controller: App\Controller\ListaRecorridoController::updateTourList
+  methods: [POST]
+#COMPROBANTE DE SERVICIO
+getComprobanteServicio:
+  path: /comprobante-servicio/{alcance}/{entidad}
+  controller: App\Controller\ComprobanteServicioController::getComprobantesServicio
+  methods: [GET]
+#################################### REGIONES ####################################
+getRegiones:
+  path: /regiones
+  controller: App\Controller\RegionController::getRegiones
+  methods: [GET]
+
+insertRegiones:
+  path: /regiones
+  controller: App\Controller\RegionController::insert
+  methods: [PUT]
+
+updateRegiones:
+  path: /regiones
+  controller: App\Controller\RegionController::update
+  methods: [POST]
+
+eliminarRegiones:
+  path: /eliminar/regiones
+  controller: App\Controller\RegionController::eliminar
+  methods: [POST]
+
+#################################### OFICINAS ####################################
+getOficinas:
+  path: /oficinas
+  controller: App\Controller\OficinaController::getOficinas
+  methods: [GET]
+
+#################################### RUTAS ####################################
+getRutas:
+  path: /rutas
+  controller: App\Controller\RutaController::getRutas
+  methods: [GET]
+
+#################################### USUARIOS ####################################
+getUsuarios:
+  path: /usuarios
+  controller: App\Controller\UsuarioController::getUsuarios
+  methods: [GET]
+
+updateUsuarios:
+  path: /usuarios
+  controller: App\Controller\UsuarioController::update
+  methods: [POST]
+
+#################################### EMPLEADOS ####################################
+getEmpleados:
+  path: /empleados
+  controller: App\Controller\EmpleadosController::getEmpleados
+  methods: [GET]
+
+#################################### FUNCION ####################################
+getFuncion:
+  path: /funcion
+  controller: App\Controller\FuncionController::getFuncion
+  methods: [GET]
+
+#################################### ALCANCE ####################################
+getAlcance:
+  path: /alcance
+  controller: App\Controller\AlcanceController::getAlcance
+  methods: [GET]
+
+#################################### MEMBRESIA ####################################
+getMembresias:
+  path: /membresias
+  controller: App\Controller\MembresiaController::getMembresias
+  methods: [GET]
+
+getMembresiasUser:
+  path: /membresias/{user}
+  controller: App\Controller\MembresiaController::getMembresiasUser
+  methods: [GET]
+
+colocarMembresias:
+  path: /membresias
+  controller: App\Controller\MembresiaController::colocarMembresias
+  methods: [PUT]
+
+#################################### TASAS CAMBIO ####################################
+getTasas:
+  path: /tasas
+  controller: App\Controller\TasaCambioController::getTasas
+  methods: [GET]
+
+#################################### RUTA ####################################
+getMontosRuta:
+  path: /monto/rutas/{alcance}/{entidad}
+  controller: App\Controller\RutaController::getMontosRuta
+  methods: [GET]
+
+#################################### PARAMETROS ####################################
+getParametros:
+  path: /parametros
+  controller: App\Controller\ParametroController::getParametros
+  methods: [GET]
+
+updateParametros:
+  path: /parametros
+  controller: App\Controller\ParametroController::update
+  methods: [POST]
+
+#################################### LOG ####################################
+getLog:
+  path: /log
+  controller: App\Controller\LogController::getLog
+  methods: [GET]
+
+getLogPanico:
+  path: /log/panico/{alcance}/{entidad}
+  controller: App\Controller\LogController::getLogPanico
+  methods: [GET]

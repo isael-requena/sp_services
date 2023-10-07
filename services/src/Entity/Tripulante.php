@@ -1,0 +1,229 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tripulante
+ *
+ * @ORM\Table(name="tripulante", indexes={@ORM\Index(name="FK_TRIPULANTE_ROL", columns={"FK_ROL"}), @ORM\Index(name="FK_TRIPULANTE_PERSONA", columns={"FK_PERSONA"}), @ORM\Index(name="FK_TRIPULANTE_LISTA_RECORRIDO", columns={"FK_LISTA_RECORRIDO"})})
+ * @ORM\Entity
+ */
+class Tripulante
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ID_TRIPULANTE", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTripulante;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="NUM_EMPLEADO", type="string", length=10, nullable=true, options={"default"="NULL"})
+     */
+    private $numEmpleado = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="USUARIO_CREACION", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $usuarioCreacion = 'NULL';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="USUARIO_MODIFICACION", type="string", length=20, nullable=true, options={"default"="NULL"})
+     */
+    private $usuarioModificacion = 'NULL';
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="FEC_ESTATUS", type="datetime", nullable=true, options={"default"="NULL"})
+     */
+    private $fecEstatus = 'NULL';
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="FEC_CREACION", type="datetime", nullable=true, options={"default"="NULL"})
+     */
+    private $fecCreacion = 'NULL';
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="FEC_MODIFICACION", type="datetime", nullable=true, options={"default"="NULL"})
+     */
+    private $fecModificacion = 'NULL';
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ESTATUS_REGISTRO", type="integer", nullable=true, options={"default"="1"})
+     */
+    private $estatusRegistro = 1;
+
+    /**
+     * @var \Persona
+     *
+     * @ORM\ManyToOne(targetEntity="Persona")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="FK_PERSONA", referencedColumnName="ID_PERSONA")
+     * })
+     */
+    private $fkPersona;
+
+    /**
+     * @var \Rol
+     *
+     * @ORM\ManyToOne(targetEntity="Rol")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="FK_ROL", referencedColumnName="ID_ROL")
+     * })
+     */
+    private $fkRol;
+
+    /**
+     * @var \ListaRecorrido
+     *
+     * @ORM\ManyToOne(targetEntity="ListaRecorrido")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="FK_LISTA_RECORRIDO", referencedColumnName="ID_LISTA_RECORRIDO")
+     * })
+     */
+    private $fkListaRecorrido;
+
+    public function getIdTripulante(): ?int
+    {
+        return $this->idTripulante;
+    }
+
+    public function getNumEmpleado(): ?string
+    {
+        return $this->numEmpleado;
+    }
+
+    public function setNumEmpleado(?string $numEmpleado): self
+    {
+        $this->numEmpleado = $numEmpleado;
+
+        return $this;
+    }
+
+    public function getUsuarioCreacion(): ?string
+    {
+        return $this->usuarioCreacion;
+    }
+
+    public function setUsuarioCreacion(?string $usuarioCreacion): self
+    {
+        $this->usuarioCreacion = $usuarioCreacion;
+
+        return $this;
+    }
+
+    public function getUsuarioModificacion(): ?string
+    {
+        return $this->usuarioModificacion;
+    }
+
+    public function setUsuarioModificacion(?string $usuarioModificacion): self
+    {
+        $this->usuarioModificacion = $usuarioModificacion;
+
+        return $this;
+    }
+
+    public function getFecEstatus(): ?\DateTimeInterface
+    {
+        return $this->fecEstatus;
+    }
+
+    public function setFecEstatus(?\DateTimeInterface $fecEstatus): self
+    {
+        $this->fecEstatus = $fecEstatus;
+
+        return $this;
+    }
+
+    public function getFecCreacion(): ?\DateTimeInterface
+    {
+        return $this->fecCreacion;
+    }
+
+    public function setFecCreacion(?\DateTimeInterface $fecCreacion): self
+    {
+        $this->fecCreacion = $fecCreacion;
+
+        return $this;
+    }
+
+    public function getFecModificacion(): ?\DateTimeInterface
+    {
+        return $this->fecModificacion;
+    }
+
+    public function setFecModificacion(?\DateTimeInterface $fecModificacion): self
+    {
+        $this->fecModificacion = $fecModificacion;
+
+        return $this;
+    }
+
+    public function getEstatusRegistro(): ?int
+    {
+        return $this->estatusRegistro;
+    }
+
+    public function setEstatusRegistro(?int $estatusRegistro): self
+    {
+        $this->estatusRegistro = $estatusRegistro;
+
+        return $this;
+    }
+
+    public function getFkPersona(): ?Persona
+    {
+        return $this->fkPersona;
+    }
+
+    public function setFkPersona(?Persona $fkPersona): self
+    {
+        $this->fkPersona = $fkPersona;
+
+        return $this;
+    }
+
+    public function getFkRol(): ?string
+    {
+        return $this->fkRol->getDescripcion();
+    }
+
+    public function setFkRol(?Rol $fkRol): self
+    {
+        $this->fkRol = $fkRol;
+
+        return $this;
+    }
+
+    public function getFkListaRecorrido(): ?ListaRecorrido
+    {
+        return $this->fkListaRecorrido;
+    }
+
+    public function setFkListaRecorrido(?ListaRecorrido $fkListaRecorrido): self
+    {
+        $this->fkListaRecorrido = $fkListaRecorrido;
+
+        return $this;
+    }
+
+
+}
