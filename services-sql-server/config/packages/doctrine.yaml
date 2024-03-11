@@ -1,11 +1,12 @@
 parameters:
     env(DATABASE_URL): ''
     database_driver: sqlsrv
-    database_host: localhost
+    database_host: '10.66.4.43'
     database_port: null
-    database_name: REPOSITORIO
-    database_user: sa
-    database_password: spp2023+=
+    database_name: REPOMOVIL
+    #database_name: REPOSITORIO
+    database_user: 'procesos'
+    database_password: 'calidad.24'
 
 doctrine:
     dbal:

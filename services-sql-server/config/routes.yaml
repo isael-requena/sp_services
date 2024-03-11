@@ -267,3 +267,10 @@ getLogPanico:
   path: /log/panico/{alcance}/{entidad}
   controller: App\Controller\LogController::getLogPanico
   methods: [GET]
+
+
+################################## moneda ###################################
+getMoneda:
+  path: /getMonedas
+  controller: App\Controller\MonedaController::getAllMoneda
+  methods: [GET]
