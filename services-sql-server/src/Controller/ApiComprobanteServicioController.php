@@ -114,4 +114,35 @@ class ApiComprobanteServicioController extends AbstractController {
 
     return new Response($data);
   }
+
+  public function setNewPointList($id): Response
+  {
+    $request = Request::createFromGlobals();
+
+    $decoded = $this->authService->validateRequest($request);
+
+    if (gettype($decoded) == 'array' && isset($decoded['error'])) {
+      return $this->json($decoded);
+    }
+
+    $requestBody = json_decode($request->getContent(), true);
+
+    $connection = $this->getDoctrine()->getConnection();
+        $sql = "UPDATE PUNTO_LR SET FK_ESTATUS = 4 WHERE FK_LISTA_RECORRIDO = {$id} AND FK_ESTATUS = 3";
+        $prepare = $connection->query($sql);
+        $resultSet = $prepare->fetchAll();
+        
+        if (!$resultSet) {
+          return $this->json([
+              'error' => "NOT_FOUND"
+          ]);
+          }
+  
+          $serializer = $this->serializerService->getSerializer();
+          $data = $serializer->serialize($resultSet, 'json');
+  
+          return new Response($data);
+
+
+  }
 }

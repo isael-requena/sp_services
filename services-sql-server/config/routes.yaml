@@ -274,3 +274,16 @@ getMoneda:
   path: /getMonedas
   controller: App\Controller\MonedaController::getAllMoneda
   methods: [GET]
+
+################################## heartbeat ###################################
+getStatus:
+  path: /status
+  controller: App\Controller\HeartbeatController::index
+  methods: [GET]
+
+
+updatePoints:
+  path: /updatePoints/{id}
+  controller: App\Controller\ApiComprobanteServicioController::setNewPointList
+  methods: [POST]
+
