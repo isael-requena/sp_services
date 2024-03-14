@@ -303,7 +303,7 @@ class TrackingPuntoController extends AbstractController{
             $tracking->setEstatusRegistro(1);
 
             $tracking->setFkEstatus($status);
-            $tracking->setFecEstatus($dateStatus);
+            $tracking->setFecEstatus($dateModify);
 
             $repositoryPointLr = $this->getDoctrine()->getRepository(PuntoLr::class);
             $point = $repositoryPointLr->findOneBy([
@@ -457,7 +457,7 @@ class TrackingPuntoController extends AbstractController{
             ]);
 
             $tracking->setFkEstatus($status);
-            $tracking->setFecEstatus($dateStatus);
+            $tracking->setFecEstatus($dateModify);
 
             $repositoryPointLr = $this->getDoctrine()->getRepository(PuntoLr::class);
             $point = $repositoryPointLr->findOneBy([
