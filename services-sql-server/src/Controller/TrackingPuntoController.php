@@ -48,6 +48,7 @@ class TrackingPuntoController extends AbstractController{
         $tracking->setUsuarioModificacion($requestBody['username']);
         $date = new \DateTime('now');
         $dateModify = $date->format('Y-m-d H:i:s');
+        
         $tracking->setFecCreacion($dateModify);
         $tracking->setFecModificacion($dateModify);
         $tracking->setEstatusRegistro(1);
@@ -62,11 +63,11 @@ class TrackingPuntoController extends AbstractController{
                 'error' => "STATUS_NOT_FOUND_ERROR"
             ]);
         }
-
-        
-
+        $date = $requestBody['date'];
+        $dateStatus = date('Y-m-d h:i:s', strtotime($date));
         $tracking->setFkEstatus($status);
-        $tracking->setFecEstatus($dateModify);
+        
+        $tracking->setFecEstatus($dateStatus);
 
         $repositoryPointLr = $this->getDoctrine()->getRepository(PuntoLr::class);
         $point = $repositoryPointLr->findOneBy([
@@ -302,7 +303,7 @@ class TrackingPuntoController extends AbstractController{
             $tracking->setEstatusRegistro(1);
 
             $tracking->setFkEstatus($status);
-            $tracking->setFecEstatus($dateModify);
+            $tracking->setFecEstatus($dateStatus);
 
             $repositoryPointLr = $this->getDoctrine()->getRepository(PuntoLr::class);
             $point = $repositoryPointLr->findOneBy([
@@ -456,7 +457,7 @@ class TrackingPuntoController extends AbstractController{
             ]);
 
             $tracking->setFkEstatus($status);
-            $tracking->setFecEstatus($dateModify);
+            $tracking->setFecEstatus($dateStatus);
 
             $repositoryPointLr = $this->getDoctrine()->getRepository(PuntoLr::class);
             $point = $repositoryPointLr->findOneBy([
@@ -604,15 +605,17 @@ class TrackingPuntoController extends AbstractController{
                 $tracking->setEstatusRegistro(1);
                 $date = new \DateTime($value['date']);
                 $dateModify = $date->format('Y-m-d H:i:s');
+
                 $tracking->setFecCreacion($dateModify);
                 $tracking->setFecModificacion($dateModify);
+                $dateStatus = date("Y-m-d h:i:s", strtotime($value['date']));
                 $repositoryStatus = $this->getDoctrine()->getRepository(Estatus::class);
                 $status = $repositoryStatus->findOneBy([
                     'idEstatus' => $value['status']
                 ]);
     
                 $tracking->setFkEstatus($status);
-                $tracking->setFecEstatus($dateModify);
+                $tracking->setFecEstatus($dateStatus);
     
                 $repositoryPointLr = $this->getDoctrine()->getRepository(PuntoLr::class);
                 $point = $repositoryPointLr->findOneBy([
@@ -757,7 +760,7 @@ class TrackingPuntoController extends AbstractController{
                     $tracking->setFkEstatus($status);
                 }
                 
-                $tracking->setFecEstatus($dateModify);
+                $tracking->setFecEstatus($dateStatus);
     
                 $repositoryReceipt = $this->getDoctrine()->getRepository(ComprobanteServicio::class);
                 $receipt = $repositoryReceipt->findOneBy([
